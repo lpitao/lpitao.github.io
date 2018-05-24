@@ -46,7 +46,10 @@ body{
 	min-height: 1900px;
 	overflow: hidden;
 }
-
+.w900{
+	width: 900px;
+	margin: 0 auto;
+}
 
 nav{
 	background: #310F0D;
@@ -83,7 +86,6 @@ nav ul li a img{
 }
 nav li a:hover{
 	animation:rotate 0.15s linear infinite;
-	background: #F8F6F7;
 }
 @keyframes rotate {
   50% {
@@ -93,6 +95,7 @@ nav li a:hover{
   100% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
     transform: translateX(-3px) rotate(-2deg);
+    background: #FBD647;
   }
 }
 
@@ -128,20 +131,64 @@ nav li a:hover{
     position: relative;
 }
 .active2 ul{
-    
+    perspective: 500px;
+	transform-style: preserve-3d;
 }
 .active2 ul li{
 	float: left;
     width: 50%;
     height: 250px;
     overflow: hidden;
-    background:#FBD647;
+    position: relative;
 }
 .active2 ul li a{
 	display: inline-block;
 }
 .active2 ul li:nth-child(1),.active2 ul li:nth-child(4){
 	background: #310F0D;
+}
+.active2 ul li:nth-child(2),.active2 ul li:nth-child(3){
+	perspective: 500px;
+}
+.active2 .card1 ,.active2 .card2{
+	transform-style: preserve-3d;
+	transition: transform .7s ;
+	width: 100%;
+    height: 100%;
+    position: relative;
+}
+.active2 .card1{
+	transform-origin: left center; 
+}
+.active2 .card2{
+	transform-origin: right center; 
+}
+.active2 .card1 .front,.active2 .card1 .back,.active2 .card2 .front,.active2 .card2 .back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size:cover ;
+    backface-visibility: hidden;
+}
+.active2 .card1 .front{
+	background-image: url(../img/lc.png);
+}
+.active2 .card1 .back{
+	transform: rotateY(180deg);
+	background-image: url(../img/cm.png);
+}
+.active2 .card2 .front{
+	background-image: url(../img/ln.png);
+}
+.active2 .card2 .back{
+	transform: rotateY(180deg);
+	background-image: url(../img/cm.png);
+}
+.rotateXl{
+	transform:translateX(100%) rotateY(180deg);
+}
+.rotateXr{
+	transform:translateX(-100%) rotateY(180deg);
 }
 
 .active3{
@@ -158,12 +205,114 @@ nav li a:hover{
     width: 33%;
     height: 250px;
     overflow: hidden;
-     background: #FBD647;
+    background: #FBD647;
+    transform-style: preserve-3d;
 }
 .active3 ul li:nth-child(2){
 	background: #310F0D;
 }
+.active3 ul li:nth-child(1),.active3 ul li:nth-child(3){
+	perspective: 500px;
+}
+.active3 ul li .card1{
+	transform-style: preserve-3d;
+	width: 100%;
+	height: 100%;
+}
+.active3 ul li .card1 .card-clip{
+	width: 100%;
+	height: 100%;
+}
+.active3 ul li:hover .card-clip{
+	animation: rotateY 1s cubic-bezier(.12,-0.32,.18,.4) infinite;
+}
+@keyframes rotateY{
+	20%{
+		transform: rotateX(20deg)
+	}
+	40%{
+		transform: rotateX(-20deg)
+	}
+	60%{
+		transform: rotateX(10deg)
+	}
+	80%{
+		transform: rotateX(-10deg)
+	}
+	100%{
+		transform: rotateX(0deg)
+	}
+}
 
-footer{
-	
+.alert1{
+    width: 60%;
+    height: 500px;
+    background: #310F0D;
+    border-radius: 5px;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+    color: ;
+}
+
+.bouncein{
+	animation:bouncein 1s ease;
+}
+.bounceout{
+	animation:bounceout 1s ease;
+}
+@keyframes bouncein{
+	0%{opacity:0;-webkit-transform:translateY(-100px);}
+    60%{opacity:1;-webkit-transform:translateY(30px);}
+    80%{-webkit-transform:translateY(-10px);}
+    100%{-webkit-transform:translateY(0);}
+} 
+
+@-webkit-keyframes bounceout{
+    0%{-webkit-transform:translateY(0);}
+    20%{opacity:1;-webkit-transform:translateY(-20px);}
+    100%{opacity:0;-webkit-transform:translateY(100px);}
+}
+
+
+.w900 .ccc{
+	margin: 20px auto;
+	width: 80%;
+	background: rgba(233,42,83,.5);
+	border-radius: 10px;
+	animation: translateX 1s ease-in-out 1;
+}
+.w900 .ccc h1 a{
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    padding: 0 20px;
+    font-weight: 500;
+}
+.w900 .ccc p{
+	padding: 0 20px;
+}
+@keyframes translateX{
+	0%{
+		opacity: 0;
+	}
+	70%{
+		transform: translateY(3px);
+	}
+	85%{
+		transform: translateY(-3px);
+	}
+	100%{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.content{
+	height: 700px;
+	margin: 0 auto;
 }

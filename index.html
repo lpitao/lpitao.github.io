@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>lpitao</title>
 		<link rel="stylesheet" href="css/css.css" />
 	</head>
 	<body>
-		<nav >
+		<nav>
 			<ul class="clearfix">
 				<li>
-					<a href="javascript:;void(0)"><img src="img/lc.png"/></a>
+					<a href="page/ccc.html" target="_blank"><img src="img/lc.png"/></a>
 				</li>
 				<li>
 					<a href="javascript:;void(0)"><img src="img/hd.png"/></a>
@@ -37,8 +37,18 @@
 			<div class="active2">
 				<ul class="clearfix">
 					<li><a href="javascript:;void(0)"></a></li>
-					<li><a href="javascript:;void(0)"><img src="img/cm.png"/></a></li>
-					<li><a href="javascript:;void(0)"><img src="img/ln.png"/></a></li>
+					<li>
+						<div class="card1">
+							<div class="front"></div>
+							<div class="back"></div>
+						</div>
+					</li>
+					<li>
+						<div class="card2">
+							<div class="front"></div>
+							<div class="back"></div>
+						</div>
+					</li>
 					<li><a href="javascript:;void(0)"></a></li>
 				</ul>
 			</div>
@@ -46,22 +56,78 @@
 			<div class="active3">
 				<ul class="clearfix">
 					<li>
-						<a href="javascript:;void(0)"><img src="img/cm.png"/></a>
-						
+						<div class="card1">
+							<div class="card-clip"><img src="img/cm.png"/></div>
+						</div>
 					</li>
 					<li><a href="javascript:;void(0)"></a></li>
-					<li><a href="javascript:;void(0)"><img src="img/ln.png"/></a></li>
+					<li>
+						<div class="card1">
+							<div class="card-clip"><img src="img/ln.png"/></div>
+						</div>
+					</li>
 				</ul>
 			</div>
 			
 		</div>
-		<footer>
-				
-		</footer>
-		
+		<!--<div class="bg_alert">-->
+		<div class="alert1" id="alert1"></div>
+		<!--</div>-->
 		<script type="text/javascript" src="js/anictr.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript">
+			var alert1 = document.querySelector('#alert1')
 			
+			$(".active2 ul :first").on("click",function(e){
+				if($('.alert1').css('display') == 'none'){	
+					anictr({
+						ele:'#alert1',
+						ani:'bouncein',
+						dur:'1000',
+						tim: 'ease',
+						before:function(obj){
+						},
+						after:function(obj){}
+					}).go();
+					$('.alert1').show();
+					console.log(1)
+				}
+				e.stopPropagation();
+			})
+			
+			$(document).on('click',function(){
+				if($('.alert1').css('display') == 'block'){
+					anictr({
+						ele:'#alert1',
+						ani:'bounceout',
+						dur:'1000',
+						tim: 'ease',
+						before:function(obj){
+						},
+						after:function(obj){}
+					}).go();
+					
+					setTimeout(function(){
+						$('.alert1').hide();
+					},1000)
+				}
+			})
+		
+			$(".card1").on('click',function(){
+				if($(this).is(".rotateXl")){
+					$(this).removeClass('rotateXl');
+				}else{
+					$(this).addClass("rotateXl")
+				}
+			})
+			$(".card2").on('click',function(){
+				if($(this).is(".rotateXr")){
+					$(this).removeClass('rotateXr');
+				}else{
+					$(this).addClass("rotateXr")
+				}
+			})
+		
 		</script>
 	</body>
 </html>
