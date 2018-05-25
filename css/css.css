@@ -21,6 +21,8 @@ input[type="submit"],input[type="reset"],input[type="button"],input,textarea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+   
+    cursor: url(../img/gb.ico),auto;
 }
 
 .clear {clear:both;}
@@ -35,6 +37,10 @@ input[type="submit"],input[type="reset"],input[type="button"],input,textarea {
 
 /*开始导航*/
 body{
+	background-image:url(../img/gl2.jpg);
+	background-size:cover ;
+}
+.index{
 	background-image:linear-gradient(#000 ,#000),url(../img/gl2.jpg);
 	background-size:cover ;
 	background-blend-mode: hue;
@@ -43,7 +49,7 @@ body{
 	width: 900px;
 	margin: 0 auto;
 	background: #FEB822;
-	min-height: 1900px;
+	min-height: 800px;
 	overflow: hidden;
 }
 .w900{
@@ -59,27 +65,27 @@ nav{
     height: 63px;
 }
 nav ul{
-    width: 900px;
+    width: 730px;
     position: absolute;
     left: 0;
     right: 0;
-    top: 25px;
+    top: 35px;
     bottom: 0;
     margin: auto;
     height: 50px;
 }
 nav ul li{
-	float: left;
-	margin: 0 6%;	
+    float: left;
+    margin: 0 1px;	
 }
 nav ul li a{
-	width: 60px;
-	height: 50px;
-	display: inline-block;
-	border: 2px solid #310F0D;
-	border-radius: 50%;
-	position: relative;
-	background: #FBD647;
+    width: 70px;
+    height: 60px;
+    display: inline-block;
+    /* border: 2px solid #feb822; */
+    border-radius: 50%;
+    position: relative;
+    background: #310F0D;
 }
 nav ul li a img{
 	width: 100%;
@@ -95,39 +101,15 @@ nav li a:hover{
   100% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
     transform: translateX(-3px) rotate(-2deg);
-    background: #FBD647;
-  }
-}
-
-.active{
-    width: 80%;
-    height: 270px;
-    border-radius: 5px;
     background: #310F0D;
-    margin: 50px auto;
-    position: relative;
-}
-.active ul{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    top: 82px;
-    width: 86%;
-}
-.active ul li{
-	float: left;
-    width: 205px;
-    height: 250px;
-   
+  }
 }
 
 
 .active2{
     width: 80%;
     border-radius: 5px;
-    margin: 150px auto;
+    margin: 50px auto;
     position: relative;
 }
 .active2 ul{
@@ -149,6 +131,7 @@ nav li a:hover{
 }
 .active2 ul li:nth-child(2),.active2 ul li:nth-child(3){
 	perspective: 500px;
+    background: #FBD647;
 }
 .active2 .card1 ,.active2 .card2{
 	transform-style: preserve-3d;
@@ -169,6 +152,9 @@ nav li a:hover{
     position: absolute;
     background-size:cover ;
     backface-visibility: hidden;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .active2 .card1 .front{
 	background-image: url(../img/lc.png);
@@ -194,7 +180,7 @@ nav li a:hover{
 .active3{
     width: 80%;
     border-radius: 5px;
-    margin: 150px auto;
+    margin: 50px auto;
     position: relative;
 }
 .active3 ul{
@@ -281,20 +267,34 @@ nav li a:hover{
 .w900 .ccc{
 	margin: 20px auto;
 	width: 80%;
-	background: rgba(233,42,83,.5);
+	background: rgba(254,184,34,.8);
 	border-radius: 10px;
 	animation: translateX 1s ease-in-out 1;
+	padding: 20px;
+}
+.ccc:nth-child(2){
+	animation-delay:0.5s ;
+}
+.ccc:nth-child(3){
+	animation-delay:0.8s ;
+}
+.ccc:nth-child(4){
+	animation-delay:1s ;
+}
+.ccc.cch{
+	background: rgba(49,15,13,.8);
 }
 .w900 .ccc h1 a{
-    display: inline-block;
-    height: 45px;
-    line-height: 45px;
+	display: inline-block;
+    height: 30px;
+    line-height: 30px;
     font-size: 20px;
-    padding: 0 20px;
     font-weight: 500;
+    color: white;
 }
 .w900 .ccc p{
-	padding: 0 20px;
+    padding-top: 20px;
+    color: white;
 }
 @keyframes translateX{
 	0%{
@@ -315,4 +315,140 @@ nav li a:hover{
 .content{
 	height: 700px;
 	margin: 0 auto;
+    overflow: hidden;
+    color: black;
+}
+.content h1{
+	margin: 20px auto;
+    width: 70%;
+    font-size: 22px;
+    color: white;
+}
+.content p{
+	white-space: pre-wrap;
+    margin: 0 auto;
+    width: 70%;
+    color: white;
+}
+
+
+.bg-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.bg-bubbles li {
+  position: absolute; /*的设置是为了营造出气泡从页面底部冒出的效果；*/
+  bottom: -160px; /*默认的气泡大小；*/
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: inset 2px 2px 15px 3px rgba(255,255,255,0.5);
+  list-style: none;/*使用自定义动画使气泡渐现、上升和翻滚；*/
+  animation: square 15s infinite;/*分别设置每个气泡不同的位置、大小、透明度和速度，以显得有层次感；*/
+}
+.bg-bubbles li:before{
+	content: '';
+	display: inline-block;
+    width: 14%;
+    height: 14%;
+	position: absolute;
+	left: 23%;
+	bottom: 27%;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.1);
+	box-shadow: inset 2px 2px 2px -2px rgba(255,255,255,.8);
+}
+.bg-bubbles li:after{
+	content: '';
+	display: inline-block;
+    width: 3%;
+    height: 3%;
+	position: absolute;
+	left: 27%;
+	bottom: 50%;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.4);
+}
+    /*自定义 square 动画；*/
+.bg-bubbles li:nth-child(1) {
+    left: 10%;
+}
+.bg-bubbles li:nth-child(2) {
+    left: 20%;
+    width: 90px;
+    height: 90px;
+    animation-delay: 2s;
+    animation-duration: 7s;
+}
+.bg-bubbles li:nth-child(3) {
+    left: 25%;
+    animation-delay: 4s;
+}
+.bg-bubbles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 8s;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-bubbles li:nth-child(5) {
+    left: 70%;
+}
+.bg-bubbles li:nth-child(6) {
+    left: 80%;
+    width: 120px;
+    height: 120px;
+    animation-delay: 3s;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.bg-bubbles li:nth-child(7) {
+    left: 32%;
+    width: 160px;
+    height: 160px;
+    animation-delay: 2s;
+}
+.bg-bubbles li:nth-child(8) {
+    left: 55%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+    animation-duration: 15s;
+}
+.bg-bubbles li:nth-child(9) {
+    left: 25%;
+    width: 10px;
+    height: 10px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-bubbles li:nth-child(10) {
+    left: 85%;
+    width: 160px;
+    height: 160px;
+    animation-delay: 5s;
+}
+@keyframes square {
+    0% {
+        opacity: 0.5;
+        transform: translateY(0px) rotate(45deg);
+    }
+    25% {
+        opacity: 0.75;
+        transform: translateY(-400px) rotate(90deg)
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-600px) rotate(135deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-1000px) rotate(180deg);
+    }
 }
