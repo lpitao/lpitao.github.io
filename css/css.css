@@ -110,8 +110,31 @@ nav li a:hover{
     width: 80%;
     border-radius: 5px;
     margin: 50px auto;
+    padding: 10px;
+    border: 20px dotted #E5E443;
     position: relative;
 }
+.active2:before {
+    content: '';
+    display: block;
+    position: absolute;
+    box-sizing: content-box;
+    width: 100%;
+    left: -21px;
+    top: -21px;
+    height: 100%;
+    border: 20px dotted #EDEE79;
+    animation: filter1 .5s ease-in-out infinite;
+}
+@keyframes filter1{
+	0%{
+		filter: opacity(0.2);
+	}
+	80%{
+		filter:opacity(0.8) saturate(80%);
+	}
+}
+
 .active2 ul{
     perspective: 500px;
 	transform-style: preserve-3d;
@@ -177,7 +200,7 @@ nav li a:hover{
 	transform:translateX(-100%) rotateY(180deg);
 }
 
-.active3{
+/*.active3{
     width: 80%;
     border-radius: 5px;
     margin: 50px auto;
@@ -228,7 +251,7 @@ nav li a:hover{
 	100%{
 		transform: rotateX(0deg)
 	}
-}
+}*/
 
 .alert1{
     width: 60%;
